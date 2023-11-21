@@ -1,0 +1,101 @@
+$body-color: #2a2c2d !default;
+$body-bg: #f3f3f3 !default;
+
+$font-family-sans-serif: "Zilla Slab" !default;
+$font-size-base: 1.125rem !default;
+$font-weight-base: 500 !default;
+
+$primary: #138dbe !default;
+$info: #3b9fc8 !default;
+$secondary: #e0e3e6 !default;
+$success: #39738b !default;
+$dark: #ababab !default;
+
+$table-bg-scale: 0% !default;
+$table-color: $body-color !default;
+$table-striped-bg: $secondary !default;
+$table-cell-padding-y: 0.75rem !default;
+$table-cell-padding-x: 0.675rem !default;
+$enable-dark-mode: false !default;
+$enable-cssgrid: false !default;
+$enable-cssgrid: false !default;
+
+// scss-docs-end grid-breakpoints
+@import "~bootstrap/scss/mixins/banner";
+@include bsBanner("");
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Layout & components
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
+
+.header-single-line {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		width: 100px;
+		content: "";
+		border-top: 2px solid #fff;
+		height: 1px;
+		display: block;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+		z-index: 1;
+		opacity: 0.45;
+	}
+
+	h1 {
+		z-index: 2;
+		position: relative;
+	}
+}
+
+.header-double-line {
+	position: relative;
+
+	&::after,
+	&::before {
+		position: absolute;
+		width: 50px;
+		content: "";
+		border-top: 1px solid $dark;
+		height: 1px;
+		display: block;
+		z-index: 1;
+		opacity: 0.65;
+	}
+
+	&::after {
+		left: 0;
+		bottom: 20%;
+	}
+
+	&::before {
+		right: 0;
+		top: 20%;
+	}
+
+	.item {
+		z-index: 2;
+		position: relative;
+		opacity: 0.65;
+	}
+}
