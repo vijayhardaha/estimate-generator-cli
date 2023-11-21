@@ -1,0 +1,27 @@
+{
+	"name": "estimate-generator-cli-template-build",
+	"version": "1.0.0",
+	"scripts": {
+		"predev": "rm -rf .parcel-cache dist",
+		"dev": "parcel src/index.html --no-cache --port 4565",
+		"prebuild": "rm -rf .parcel-cache dist",
+		"build": "parcel build src/index.html --no-source-maps --no-cache",
+		"postbuild": "rm -rf ../src/template && mv dist ../src/template"
+	},
+	"parcel-namer-hashless": {
+		"include": [
+			".js$",
+			".css$"
+		],
+		"mode": "all"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "2.10.1",
+		"parcel": "^2.10.1",
+		"parcel-namer-hashless": "^1.0.5"
+	},
+	"dependencies": {
+		"@popperjs/core": "^2.11.8",
+		"bootstrap": "^5.3.2"
+	}
+}
