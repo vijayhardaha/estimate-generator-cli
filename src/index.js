@@ -7,10 +7,10 @@ import ora from "ora"; // Library for console spinner
 import nodeHtmlToImage from "node-html-to-image"; // Library for converting HTML to image
 import yargs from "yargs"; // Command-line argument parsing library
 import { hideBin } from "yargs/helpers"; // Helper for hiding the script name in command-line arguments
+import { promises as fs } from "fs"; // Import the fs module's promise functions for file operations
 import buildHtml from "./lib/template.js";
 import { getOutputImageName } from "./lib/utils.js";
 import { isValidMarkdownFile } from "./lib/file.js";
-
 /**
  * Generate an image from a markdown file.
  */
@@ -59,6 +59,9 @@ import { isValidMarkdownFile } from "./lib/file.js";
 
     // Update the spinner text to indicate image generation
     spinner.text = "Generating image from Markdown...";
+
+    // Write the generated HTML content to the specified output file
+    await fs.writeFile(output.replace(type, "html"), html);
 
     // Generate the image using nodeHtmlToImage with specified type, HTML content, and output filename
     await nodeHtmlToImage({
