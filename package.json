@@ -1,6 +1,6 @@
 {
 	"name": "estimate-generator-cli",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "index.js",
 	"repository": "https://github.com/vijayhardaha/estimate-generator-cli.git",
 	"author": "Vijay Hardaha <https://twitter.com/vijayhardaha>",
