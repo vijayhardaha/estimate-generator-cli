@@ -61,7 +61,7 @@ import { isValidMarkdownFile } from "./lib/file.js";
     spinner.text = "Generating image from Markdown...";
 
     // Write the generated HTML content to the specified output file
-    await fs.writeFile(output.replace(type, "html"), html);
+    await fs.writeFile(output.replace(type, "html"), html.replace("transform:scale(4);", "transform:scale(1);"));
 
     // Generate the image using nodeHtmlToImage with specified type, HTML content, and output filename
     await nodeHtmlToImage({
